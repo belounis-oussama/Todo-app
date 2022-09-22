@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements OnDialogCloseList
         itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onDialogClose(DialogInterface dialogInterface) {
 

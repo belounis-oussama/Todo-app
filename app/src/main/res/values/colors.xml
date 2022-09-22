@@ -4,9 +4,10 @@
     <color name="sec_color">#BC6C25</color>
     <color name="white_color">#FEFAE0</color>
     <color name="main_variation">#606C38</color>
-    <color name="sec_variation">#DDA15E</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="sec_variation">#eac69e</color>
+    <color name="sec_variationdark">#704016</color>
+    <color name="black">#141B0C</color>
+    <color name="white">#fefae0</color>
 
 
     <color name="purple_700">#283618</color>
