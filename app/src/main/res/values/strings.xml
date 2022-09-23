@@ -4,4 +4,6 @@
     <string name="swipe_right_to_edit">Swipe Right To Edit</string>
     <string name="dont_show_again">Dont Show Again</string>
     <string name="ok">Ok</string>
+    <string name="ascendant">ascendant</string>
+    <string name="settings">Settings</string>
 </resources>

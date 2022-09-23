@@ -1,5 +1,6 @@
 package com.example.todo;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
@@ -10,10 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.TypedValue;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -39,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements OnDialogCloseList
     private Toolbar toolbar;
     TextView okay_text, cancel_text;
     public static final String TUTO_STRING="TUTORIAL_SHOW_DIALOG";
+    public static final String MY_SORT_PREFE="MY_SORT_PREFE";
 
 
     @Override
@@ -51,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements OnDialogCloseList
         recyclerView=findViewById(R.id.recycleView);
         fab=findViewById(R.id.fab);
         toolbar=findViewById(R.id.toolbar);
+
 
 
 
@@ -101,14 +107,22 @@ public class MainActivity extends AppCompatActivity implements OnDialogCloseList
         adapter=new TodoAdapter(myDB,MainActivity.this);
 
 
-        setSupportActionBar(toolbar);
+
 
         recyclerView.setHasFixedSize(true);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
         mList=myDB.gettAllTasks();
-        Collections.reverse(mList);
+
+        toolbar.setTitle("My Tasks ("+String.valueOf(mList.size())+")");
+        setSupportActionBar(toolbar);
+        String sorting=preferences.getString("sorting","sortByascendant");
+        if (sorting.equals("sortBydescendent"))
+        {
+            Collections.reverse(mList);
+        }
         adapter.setTasks(mList);
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -127,11 +141,45 @@ public class MainActivity extends AppCompatActivity implements OnDialogCloseList
     public void onDialogClose(DialogInterface dialogInterface) {
 
         mList=myDB.gettAllTasks();
+
         Collections.reverse(mList);
         adapter.setTasks(mList);
         adapter.notifyDataSetChanged();
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_toolbar,menu);
+
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor editor = preferences.edit();
+        switch (item.getItemId())
+        {
+            case R.id.ascendant:
+                editor.putString("sorting","sortByascendant");
+                editor.apply();
+                this.recreate();
+                break;
+
+            case R.id.descendent:
+                editor.putString("sorting","sortBydescendent");
+                editor.apply();
+                this.recreate();
+                break;
+
+
+            case R.id.settings:
+
+                startActivity(new Intent(getApplicationContext(),Settings.class));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 }
