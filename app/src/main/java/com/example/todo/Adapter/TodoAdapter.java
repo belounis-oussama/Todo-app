@@ -1,7 +1,9 @@
 package com.example.todo.Adapter;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,10 +48,24 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.MyViewHolder> 
         holder.mCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                /*
+                if (! holder.mCheckBox.getPaint().isStrikeThruText()) {
+                    holder.mCheckBox.setPaintFlags( holder.mCheckBox.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                } else {
+                    holder.mCheckBox.setPaintFlags( holder.mCheckBox.getPaintFlags() & ~Paint.STRIKE_THRU_TEXT_FLAG);
+                }
+                */
                 if (isChecked){
                     myDB.updateStatus(item.getId() , 1);
+
+                    //holder.mCheckBox.setPaintFlags(holder.mCheckBox.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+
                 }else
                     myDB.updateStatus(item.getId() , 0);
+
+                //holder.mCheckBox.setPaintFlags(holder.mCheckBox.getPaintFlags() & (~ Paint.ANTI_ALIAS_FLAG));
+
             }
         });
     }
@@ -100,4 +116,6 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.MyViewHolder> 
             mCheckBox = itemView.findViewById(R.id.checkbox);
         }
     }
+
+
 }

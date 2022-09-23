@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Todo</string>
+    <string name="swipe_left_to_delete">Swipe Left To Delete</string>
+    <string name="swipe_right_to_edit">Swipe Right To Edit</string>
+    <string name="dont_show_again">Dont Show Again</string>
+    <string name="ok">Ok</string>
 </resources>

@@ -108,6 +108,7 @@ public class AddNewTask extends BottomSheetDialogFragment {
                     item.setStatus(0);
                     Mydb.insertTask(item);
 
+
                 }
                 dismiss();
             }

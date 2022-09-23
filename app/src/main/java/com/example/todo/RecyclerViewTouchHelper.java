@@ -3,6 +3,7 @@ package com.example.todo;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Canvas;
+import android.util.TypedValue;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
@@ -16,6 +17,7 @@ public class RecyclerViewTouchHelper extends ItemTouchHelper.SimpleCallback {
 
 
     private final TodoAdapter adapter;
+
     
 
 
@@ -67,10 +69,19 @@ public class RecyclerViewTouchHelper extends ItemTouchHelper.SimpleCallback {
     @Override
     public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
 
+
+
+        TypedValue typedValue = new TypedValue();
+
+        adapter.getContext().getTheme().resolveAttribute(com.google.android.material.R.attr.colorPrimary, typedValue, true);
+        int colorPrimary= typedValue.data;
+
+        adapter.getContext().getTheme().resolveAttribute(com.google.android.material.R.attr.colorSecondary, typedValue, true);
+        int colorSecondary= typedValue.data;
         new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
-                .addSwipeLeftBackgroundColor(ContextCompat.getColor(adapter.getContext() , R.color.main_color))
+                .addSwipeLeftBackgroundColor(colorPrimary)
                 .addSwipeLeftActionIcon(R.drawable.ic_baseline_edit_)
-                .addSwipeRightBackgroundColor(ContextCompat.getColor(adapter.getContext() , R.color.sec_color))
+                .addSwipeRightBackgroundColor(colorSecondary)
                 .addSwipeRightActionIcon(R.drawable.ic_baseline_delete)
                 .create()
                 .decorate();

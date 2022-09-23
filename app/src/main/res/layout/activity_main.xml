@@ -7,22 +7,26 @@
     android:background="?attr/colorOnPrimary"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/TextView"
-        android:layout_width="wrap_content"
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="To Do Tasks"
-        android:textColor="?attr/colorOnSecondary"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        android:layout_alignParentTop="true"
+        android:background="?attr/colorPrimary"
+        app:titleTextColor="?attr/colorOnPrimary"
+        app:titleMarginStart="20dp"
+
+        />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/TextView"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/toolbar"
         android:nestedScrollingEnabled="true" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -37,7 +41,8 @@
         android:layout_marginBottom="30dp"
         android:backgroundTint="?attr/colorSecondary"
         android:src="@drawable/add_icon"
-        app:tint="?attr/colorOnPrimary"/>
+        app:tint="?attr/colorOnPrimary"
+        android:contentDescription="add TODO" />
 
 
 

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/swipe_left_to_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/swipe_left_to_delete"
+        android:textColor="?attr/colorOnSecondary"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="0dp"
+        android:id="@+id/swipe_left_to_delete_image"
+        android:layout_below="@id/swipe_left_to_delete"
+        android:src="@drawable/delete"
+        />
+
+
+    <TextView
+        android:id="@+id/swipe_right_to_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/swipe_left_to_delete_image"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/swipe_right_to_edit"
+        android:textColor="?attr/colorOnSecondary"
+        android:textSize="15sp"
+
+        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="0dp"
+        android:id="@+id/swipe_right_to_edit_iamge"
+        android:layout_below="@id/swipe_right_to_edit"
+        android:src="@drawable/edit"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/swipe_right_to_edit_iamge"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/ok"
+        android:elevation="5dp"
+        android:textSize="18sp"
+        android:clickable="true"
+        android:focusable="true"
+        android:id="@+id/ok"
+        android:textColor="?attr/colorSecondary"
+         />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/swipe_right_to_edit_iamge"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:textSize="16sp"
+        android:id="@+id/dont_show_again"
+        android:elevation="5dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="@string/dont_show_again"
+        android:textColor="?attr/colorPrimary" />
+
+</RelativeLayout>
