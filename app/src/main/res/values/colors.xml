@@ -9,6 +9,11 @@
     <color name="black">#141B0C</color>
     <color name="white">#fefae0</color>
 
+    <color name="dialog_light">#fefef8</color>
+    <color name="dialog_dark">#42483c
+
+    </color>
+
 
     <color name="purple_700">#283618</color>
     <color name="teal_200">#BC6C25</color>

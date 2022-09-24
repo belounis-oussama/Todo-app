@@ -2,6 +2,7 @@ package com.example.todo;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements OnDialogCloseList
     TextView okay_text, cancel_text;
     public static final String TUTO_STRING="TUTORIAL_SHOW_DIALOG";
     public static final String MY_SORT_PREFE="MY_SORT_PREFE";
+    public static final String DARK_MODE_PREF="DARK_MODE_PREFERENCES";
 
 
     @Override
@@ -62,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements OnDialogCloseList
 
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
         boolean showDialog=preferences.getBoolean(TUTO_STRING,true);
 
         if (showDialog)

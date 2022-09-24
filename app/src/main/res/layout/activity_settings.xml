@@ -21,4 +21,61 @@
 
         />
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:id="@+id/settingsholder"
+
+        >
+
+    <RelativeLayout
+        android:id="@+id/units"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="3dp"
+        android:clickable="true"
+        android:focusable="true"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:elevation="5dp"
+            android:focusable="true"
+            android:layout_centerVertical="true"
+            android:text="Dark mode"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="16sp"
+
+            />
+        <com.polyak.iconswitch.IconSwitch
+            android:id="@+id/darkmodeSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:isw_background_color="?attr/colorOnSecondary"
+            app:isw_icon_right="@drawable/ic_round_dark_mode_24"
+            app:isw_icon_left="@drawable/ic_round_wb_sunny_24"
+            />
+
+
+        />
+
+
+    </RelativeLayout>
+        <View style="@style/Divider"
+            android:layout_marginTop="5dp"/>
+
+    </LinearLayout>
+
+
+
+
 </RelativeLayout>
